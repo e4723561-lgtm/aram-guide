@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英雄聯盟大亂鬥攻略</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0e1a; color: #c8aa6e; font-family: '微軟正黑體', 'Noto Sans TC', sans-serif; }
+
+    header {
+      background: #1a1b21;
+      padding: 16px 24px;
+      border-bottom: 2px solid #785a28;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 { font-size: 1.4rem; color: #c8aa6e; white-space: nowrap; }
+
+    #search {
+      padding: 8px 14px;
+      border: 1px solid #785a28;
+      border-radius: 4px;
+      background: #0d1117;
+      color: #c8aa6e;
+      font-size: 1rem;
+      width: 260px;
+    }
+    #search::placeholder { color: #555; }
+    #search:focus { outline: none; border-color: #c8aa6e; }
+
+    main { padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+    #champion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .champion-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .champion-card:hover { background: #1e2330; }
+    .champion-card.active { background: #2a3040; border-color: #c8aa6e; }
+
+    .champion-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      border: 1px solid #3a3a3a;
+    }
+    .champion-card span {
+      font-size: 0.68rem;
+      margin-top: 4px;
+      text-align: center;
+      color: #a0a0a0;
+      line-height: 1.2;
+    }
+
+    #loading { display: none; color: #888; padding: 24px; text-align: center; font-size: 0.9rem; }
+
+    #error-msg {
+      display: none;
+      color: #e06c6c;
+      background: #2a1515;
+      border: 1px solid #5a2020;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    #detail-panel {
+      display: none;
+      background: #1a1b21;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    #detail-panel.visible { display: block; }
+
+    #detail-panel h2 {
+      font-size: 1.4rem;
+      color: #c8aa6e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fallback-badge {
+      font-size: 0.7rem;
+      background: #3a2a00;
+      color: #c8aa6e;
+      padding: 2px 10px;
+      border-radius: 12px;
+      border: 1px solid #785a28;
+    }
+
+    .section { margin-bottom: 24px; }
+    .section h3 {
+      font-size: 0.8rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .items-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .item-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      width: 64px;
+    }
+    .item-slot img {
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+      border: 1px solid #5a5a5a;
+      background: #0d1117;
+    }
+    .item-slot span {
+      font-size: 0.6rem;
+      color: #a0a0a0;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .rune-block { display: flex; flex-direction: column; gap: 4px; }
+    .rune-keystone { font-size: 1rem; color: #c8aa6e; font-weight: bold; }
+    .rune-paths { font-size: 0.82rem; color: #888; }
+
+    .skill-order { display: flex; align-items: center; gap: 6px; }
+    .skill-badge {
+      background: #1e2330;
+      border: 2px solid #785a28;
+      color: #c8aa6e;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .skill-arrow { color: #444; font-size: 1.2rem; }
+
+    #no-result { display: none; color: #666; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>英雄聯盟大亂鬥攻略</h1>
+    <input type="text" id="search" placeholder="搜尋英雄（中文或英文）...">
+  </header>
+  <main>
+    <div id="champion-grid"></div>
+    <div id="no-result">找不到此英雄</div>
+    <div id="loading">載入攻略中...</div>
+    <div id="error-msg"></div>
+    <div id="detail-panel"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
