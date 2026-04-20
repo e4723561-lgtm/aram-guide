@@ -1,4 +1,4 @@
-// 版本：14.8（最後更新：2026-04-20）
+// 版本：14.8（最後更新：2026-04-21）
 // server.js 回傳 { fallback: true } 時，app.js 讀取此資料
 
 const FALLBACK_DATA = {
@@ -28,12 +28,12 @@ const FALLBACK_DATA = {
   },
   Ezreal: {
     items: [
-      { id: 3004, name: '茂凱的馬納罩' },
+      { id: 3078, name: '三相之力' },
       { id: 3042, name: '馬納穿刺者' },
+      { id: 6672, name: '克拉肯獵手' },
+      { id: 3153, name: '破敗之刃' },
       { id: 3071, name: '黑色切割者' },
-      { id: 3134, name: '謝利達的傲慢' },
-      { id: 6333, name: '龍之利爪' },
-      { id: 3156, name: '瑪莫提斯' }
+      { id: 6333, name: '死亡之舞' }
     ],
     runes: { keystone: { name: '征服者' }, primaryPath: '精密', secondaryPath: '巫術' },
     skillOrder: ['Q', 'E', 'W']
@@ -64,14 +64,14 @@ const FALLBACK_DATA = {
   },
   MissFortune: {
     items: [
-      { id: 3031, name: '無盡之刃' },
-      { id: 3094, name: '疾速火砲' },
+      { id: 6691, name: '暮光之刃' },
+      { id: 6692, name: '日蝕' },
+      { id: 3814, name: '蛇之毒牙' },
       { id: 3036, name: '領主督軍之甲' },
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3085, name: '魯南的颶風' },
+      { id: 6333, name: '死亡之舞' },
       { id: 3072, name: '血飲者' }
     ],
-    runes: { keystone: { name: '致命一擊' }, primaryPath: '精密', secondaryPath: '主宰' },
+    runes: { keystone: { name: '黑暗收割' }, primaryPath: '主宰', secondaryPath: '精密' },
     skillOrder: ['Q', 'E', 'W']
   },
   Ziggs: {
