@@ -218,6 +218,25 @@
     .skill-arrow { color: #444; font-size: 1.2rem; }
 
     #no-result { display: none; color: #666; padding: 20px; text-align: center; }
+
+    .build-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+    .build-tab {
+      padding: 6px 16px;
+      border-radius: 4px;
+      border: 1px solid #3a3a3a;
+      background: #0d1117;
+      color: #888;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.15s;
+    }
+    .build-tab:hover { border-color: #c8aa6e; color: #c8aa6e; }
+    .build-tab.active.official  { background: #785a28; color: #fff; border-color: #785a28; }
+    .build-tab.active.community { background: #4a90e2; color: #fff; border-color: #4a90e2; }
+
+    .source-badge { font-size: 0.68rem; padding: 2px 8px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+    .official-badge  { background: #785a28; color: #fff; }
+    .community-badge { background: #4a90e2; color: #fff; }
   </style>
 </head>
 <body>

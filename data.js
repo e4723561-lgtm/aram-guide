@@ -1,19 +1,40 @@
 // ARAM: Mayhem（隨機單中：大亂鬥）攻略資料
 // 版本：26.8（最後更新：2026-04-21）
-// tier：S+ > S > A > B > C，依勝率與強度評定
+// tier：S+ > S > A > B > C
+// builds[0] = 攻略推薦（主流強勢）
+// builds[1] = 社群熱門（高勝率社群玩家常用）
+// builds[2] = 社群進階（需技術但上限高）
 
 const TIER_ORDER = ['S+', 'S', 'A', 'B', 'C'];
 
 const FALLBACK_DATA = {
   Lillia: {
     tier: 'S+',
-    items: [
-      { id: 3116, name: '瑞蕾的冰晶節杖' },
-      { id: 3285, name: '魯登的風暴' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 4645, name: '暗影火焰' },
-      { id: 3157, name: '宙納的沙漏' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3116, name: '瑞蕾的冰晶節杖' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3116, name: '瑞蕾的冰晶節杖' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3165, name: '莫雷洛秘典' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3116, name: '瑞蕾的冰晶節杖' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3102, name: '班希的面紗' }
+      ]}
     ],
     augments: {
       prismatic: ['極度邪惡', '魔法導彈'],
@@ -24,13 +45,31 @@ const FALLBACK_DATA = {
   },
   Brand: {
     tier: 'S+',
-    items: [
-      { id: 4645, name: '暗影火焰' },
-      { id: 3285, name: '魯登的風暴' },
-      { id: 3165, name: '莫雷洛秘典' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 3116, name: '瑞蕾的冰晶節杖' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 4645, name: '暗影火焰' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3116, name: '瑞蕾的冰晶節杖' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 4645, name: '暗影火焰' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3102, name: '班希的面紗' }
+      ]}
     ],
     augments: {
       prismatic: ['魔法導彈', '極度邪惡'],
@@ -41,13 +80,31 @@ const FALLBACK_DATA = {
   },
   Morgana: {
     tier: 'S',
-    items: [
-      { id: 3165, name: '莫雷洛秘典' },
-      { id: 4645, name: '暗影火焰' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3157, name: '宙納的沙漏' },
-      { id: 3116, name: '瑞蕾的冰晶節杖' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3116, name: '瑞蕾的冰晶節杖' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 6617, name: '月石復甦者' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]}
     ],
     augments: {
       prismatic: ['吸血迷信', '極度邪惡'],
@@ -58,13 +115,31 @@ const FALLBACK_DATA = {
   },
   Vayne: {
     tier: 'S',
-    items: [
-      { id: 3153, name: '破敗之刃' },
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3124, name: '鬼索的狂暴之刃' },
-      { id: 3091, name: '智者之末' },
-      { id: 3031, name: '無盡之刃' },
-      { id: 3072, name: '血飲者' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3153, name: '破敗之刃' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3124, name: '鬼索的狂暴之刃' },
+        { id: 3091, name: '智者之末' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3153, name: '破敗之刃' },
+        { id: 3124, name: '鬼索的狂暴之刃' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3153, name: '破敗之刃' },
+        { id: 3124, name: '鬼索的狂暴之刃' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3091, name: '智者之末' },
+        { id: 3026, name: '守護天使' },
+        { id: 3072, name: '血飲者' }
+      ]}
     ],
     augments: {
       prismatic: ['寶石手套', '吸血迷信'],
@@ -75,13 +150,31 @@ const FALLBACK_DATA = {
   },
   Yasuo: {
     tier: 'S',
-    items: [
-      { id: 3031, name: '無盡之刃' },
-      { id: 3085, name: '魯南的颶風' },
-      { id: 3036, name: '領主督軍之甲' },
-      { id: 3072, name: '血飲者' },
-      { id: 3139, name: '水銀彎刀' },
-      { id: 3134, name: '謝利達的傲慢' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' },
+        { id: 3139, name: '水銀彎刀' },
+        { id: 3134, name: '謝利達的傲慢' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3072, name: '血飲者' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3026, name: '守護天使' },
+        { id: 3134, name: '謝利達的傲慢' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3134, name: '謝利達的傲慢' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' },
+        { id: 3156, name: '瑪莫提斯' }
+      ]}
     ],
     augments: {
       prismatic: ['寶石手套', '黑暗收割'],
@@ -92,13 +185,31 @@ const FALLBACK_DATA = {
   },
   Jinx: {
     tier: 'A',
-    items: [
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3085, name: '魯南的颶風' },
-      { id: 3031, name: '無盡之刃' },
-      { id: 3094, name: '疾速火砲' },
-      { id: 3036, name: '領主督軍之甲' },
-      { id: 3072, name: '血飲者' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3072, name: '血飲者' },
+        { id: 3026, name: '守護天使' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3085, name: '魯南的颶風' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3156, name: '瑪莫提斯' }
+      ]}
     ],
     augments: {
       prismatic: ['吸血迷信', '極度邪惡'],
@@ -109,13 +220,31 @@ const FALLBACK_DATA = {
   },
   Lux: {
     tier: 'A',
-    items: [
-      { id: 3285, name: '魯登的風暴' },
-      { id: 4645, name: '暗影火焰' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 3157, name: '宙納的沙漏' },
-      { id: 6655, name: '洛奇恩之怒' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 6655, name: '洛奇恩之怒' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 4645, name: '暗影火焰' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3165, name: '莫雷洛秘典' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3102, name: '班希的面紗' }
+      ]}
     ],
     augments: {
       prismatic: ['魔法導彈', '極度邪惡'],
@@ -126,13 +255,31 @@ const FALLBACK_DATA = {
   },
   Ashe: {
     tier: 'A',
-    items: [
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3085, name: '魯南的颶風' },
-      { id: 3124, name: '鬼索的狂暴之刃' },
-      { id: 3091, name: '智者之末' },
-      { id: 3110, name: '冰霜之心' },
-      { id: 3072, name: '血飲者' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3124, name: '鬼索的狂暴之刃' },
+        { id: 3091, name: '智者之末' },
+        { id: 3110, name: '冰霜之心' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3085, name: '魯南的颶風' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3124, name: '鬼索的狂暴之刃' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3026, name: '守護天使' }
+      ]}
     ],
     augments: {
       prismatic: ['吸血迷信', '寶石手套'],
@@ -143,13 +290,31 @@ const FALLBACK_DATA = {
   },
   Ezreal: {
     tier: 'A',
-    items: [
-      { id: 3078, name: '三相之力' },
-      { id: 3042, name: '馬納穿刺者' },
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3153, name: '破敗之刃' },
-      { id: 3071, name: '黑色切割者' },
-      { id: 6333, name: '死亡之舞' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3078, name: '三相之力' },
+        { id: 3042, name: '馬納穿刺者' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3153, name: '破敗之刃' },
+        { id: 3071, name: '黑色切割者' },
+        { id: 6333, name: '死亡之舞' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3042, name: '馬納穿刺者' },
+        { id: 3078, name: '三相之力' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3071, name: '黑色切割者' },
+        { id: 3072, name: '血飲者' },
+        { id: 3026, name: '守護天使' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3165, name: '莫雷洛秘典' }
+      ]}
     ],
     augments: {
       prismatic: ['極度邪惡', '吸血迷信'],
@@ -160,13 +325,31 @@ const FALLBACK_DATA = {
   },
   Ziggs: {
     tier: 'A',
-    items: [
-      { id: 3285, name: '魯登的風暴' },
-      { id: 4645, name: '暗影火焰' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 3165, name: '莫雷洛秘典' },
-      { id: 4629, name: '隕落之火' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 4629, name: '隕落之火' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 4645, name: '暗影火焰' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3165, name: '莫雷洛秘典' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3102, name: '班希的面紗' }
+      ]}
     ],
     augments: {
       prismatic: ['魔法導彈', '極度邪惡'],
@@ -177,13 +360,31 @@ const FALLBACK_DATA = {
   },
   Caitlyn: {
     tier: 'A',
-    items: [
-      { id: 3031, name: '無盡之刃' },
-      { id: 3094, name: '疾速火砲' },
-      { id: 3085, name: '魯南的颶風' },
-      { id: 6672, name: '克拉肯獵手' },
-      { id: 3036, name: '領主督軍之甲' },
-      { id: 3072, name: '血飲者' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3094, name: '疾速火砲' },
+        { id: 3031, name: '無盡之刃' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3072, name: '血飲者' },
+        { id: 3036, name: '領主督軍之甲' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3026, name: '守護天使' },
+        { id: 3036, name: '領主督軍之甲' }
+      ]}
     ],
     augments: {
       prismatic: ['吸血迷信', '寶石手套'],
@@ -194,13 +395,31 @@ const FALLBACK_DATA = {
   },
   MissFortune: {
     tier: 'A',
-    items: [
-      { id: 6691, name: '暮光之刃' },
-      { id: 6692, name: '日蝕' },
-      { id: 3814, name: '蛇之毒牙' },
-      { id: 3036, name: '領主督軍之甲' },
-      { id: 6333, name: '死亡之舞' },
-      { id: 3072, name: '血飲者' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 6691, name: '暮光之刃' },
+        { id: 6692, name: '日蝕' },
+        { id: 3814, name: '蛇之毒牙' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 6333, name: '死亡之舞' },
+        { id: 3072, name: '血飲者' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 6691, name: '暮光之刃' },
+        { id: 3814, name: '蛇之毒牙' },
+        { id: 6692, name: '日蝕' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' },
+        { id: 3026, name: '守護天使' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3031, name: '無盡之刃' },
+        { id: 3085, name: '魯南的颶風' },
+        { id: 6672, name: '克拉肯獵手' },
+        { id: 3094, name: '疾速火砲' },
+        { id: 3036, name: '領主督軍之甲' },
+        { id: 3072, name: '血飲者' }
+      ]}
     ],
     augments: {
       prismatic: ['黑暗收割', '吸血迷信'],
@@ -211,13 +430,31 @@ const FALLBACK_DATA = {
   },
   Veigar: {
     tier: 'A',
-    items: [
-      { id: 3165, name: '莫雷洛秘典' },
-      { id: 3285, name: '魯登的風暴' },
-      { id: 4645, name: '暗影火焰' },
-      { id: 3089, name: '拉巴頓的法術之冠' },
-      { id: 3135, name: '虛空法杖' },
-      { id: 3157, name: '宙納的沙漏' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3102, name: '班希的面紗' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 4645, name: '暗影火焰' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]}
     ],
     augments: {
       prismatic: ['極度邪惡', '魔法導彈'],
@@ -228,13 +465,31 @@ const FALLBACK_DATA = {
   },
   Sona: {
     tier: 'B',
-    items: [
-      { id: 6617, name: '月石復甦者' },
-      { id: 3504, name: '炙熱香爐' },
-      { id: 6616, name: '流水法杖' },
-      { id: 3107, name: '救贖' },
-      { id: 3222, name: '梅開隆的活力' },
-      { id: 4005, name: '帝國命令' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 6617, name: '月石復甦者' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 6616, name: '流水法杖' },
+        { id: 3107, name: '救贖' },
+        { id: 3222, name: '梅開隆的活力' },
+        { id: 4005, name: '帝國命令' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3157, name: '宙納的沙漏' },
+        { id: 3165, name: '莫雷洛秘典' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 6617, name: '月石復甦者' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]}
     ],
     augments: {
       prismatic: ['阿嬤的辣油', '吸血迷信'],
@@ -245,13 +500,31 @@ const FALLBACK_DATA = {
   },
   Seraphine: {
     tier: 'B',
-    items: [
-      { id: 6617, name: '月石復甦者' },
-      { id: 3504, name: '炙熱香爐' },
-      { id: 6616, name: '流水法杖' },
-      { id: 3107, name: '救贖' },
-      { id: 3165, name: '莫雷洛秘典' },
-      { id: 3222, name: '梅開隆的活力' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 6617, name: '月石復甦者' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 6616, name: '流水法杖' },
+        { id: 3107, name: '救贖' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3222, name: '梅開隆的活力' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3285, name: '魯登的風暴' },
+        { id: 4645, name: '暗影火焰' },
+        { id: 3089, name: '拉巴頓的法術之冠' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3157, name: '宙納的沙漏' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 6617, name: '月石復甦者' },
+        { id: 3285, name: '魯登的風暴' },
+        { id: 3165, name: '莫雷洛秘典' },
+        { id: 3135, name: '虛空法杖' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 3089, name: '拉巴頓的法術之冠' }
+      ]}
     ],
     augments: {
       prismatic: ['阿嬤的辣油', '極度邪惡'],
@@ -262,13 +535,31 @@ const FALLBACK_DATA = {
   },
   Thresh: {
     tier: 'B',
-    items: [
-      { id: 3190, name: '萊安卓的酷刑架' },
-      { id: 3109, name: '騎士誓約' },
-      { id: 3107, name: '救贖' },
-      { id: 3050, name: '傑瓦的迴護之冕' },
-      { id: 3222, name: '梅開隆的活力' },
-      { id: 3504, name: '炙熱香爐' }
+    builds: [
+      { label: '攻略推薦', items: [
+        { id: 3190, name: '萊安卓的酷刑架' },
+        { id: 3109, name: '騎士誓約' },
+        { id: 3107, name: '救贖' },
+        { id: 3050, name: '傑瓦的迴護之冕' },
+        { id: 3222, name: '梅開隆的活力' },
+        { id: 3504, name: '炙熱香爐' }
+      ]},
+      { label: '社群熱門', items: [
+        { id: 3109, name: '騎士誓約' },
+        { id: 3190, name: '萊安卓的酷刑架' },
+        { id: 3050, name: '傑瓦的迴護之冕' },
+        { id: 3107, name: '救贖' },
+        { id: 3504, name: '炙熱香爐' },
+        { id: 3068, name: '陽炎石板' }
+      ]},
+      { label: '社群進階', items: [
+        { id: 3190, name: '萊安卓的酷刑架' },
+        { id: 3068, name: '陽炎石板' },
+        { id: 3109, name: '騎士誓約' },
+        { id: 3107, name: '救贖' },
+        { id: 3222, name: '梅開隆的活力' },
+        { id: 3050, name: '傑瓦的迴護之冕' }
+      ]}
     ],
     augments: {
       prismatic: ['痛打一頓', '吸血迷信'],

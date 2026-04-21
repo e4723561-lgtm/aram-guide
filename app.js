@@ -13,6 +13,7 @@ const TIER_COLOR = {
 let ddVersion = '';
 let allChampions = [];
 let activeTier = '全部';
+let activeBuildIndex = 0;
 
 async function init() {
   try {
@@ -22,18 +23,11 @@ async function init() {
 
     allChampions = Object.values(data.data).map(c => {
       const fb = FALLBACK_DATA[c.id];
-      return {
-        id: c.id,
-        zhName: c.name,
-        image: `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/champion/${c.id}.png`,
-        tier: fb ? fb.tier : null
-      };
+      return { id: c.id, zhName: c.name, image: `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/champion/${c.id}.png`, tier: fb?.tier || null };
     });
 
-    // 有T級資料的排前面（依 S+ > S > A > B > C），其餘排後
     allChampions.sort((a, b) => {
-      const ai = TIER_ORDER.indexOf(a.tier);
-      const bi = TIER_ORDER.indexOf(b.tier);
+      const ai = TIER_ORDER.indexOf(a.tier), bi = TIER_ORDER.indexOf(b.tier);
       if (ai === -1 && bi === -1) return 0;
       if (ai === -1) return 1;
       if (bi === -1) return -1;
@@ -49,10 +43,9 @@ async function init() {
 function renderGrid(champions) {
   const grid = document.getElementById('champion-grid');
   const noResult = document.getElementById('no-result');
-
   const searchQ = document.getElementById('search').value.trim().toLowerCase();
 
-  let filtered = champions.filter(c => {
+  const filtered = champions.filter(c => {
     const matchSearch = !searchQ || c.zhName.toLowerCase().includes(searchQ) || c.id.toLowerCase().includes(searchQ);
     const matchTier = activeTier === '全部' || c.tier === activeTier;
     return matchSearch && matchTier;
@@ -102,12 +95,13 @@ document.querySelectorAll('.tier-btn').forEach(btn => {
 function onChampionClick(champ) {
   document.querySelectorAll('.champion-card').forEach(el => el.classList.remove('active'));
   document.querySelector(`.champion-card[data-id="${champ.id}"]`)?.classList.add('active');
-  document.getElementById('detail-panel').classList.remove('visible');
   document.getElementById('error-msg').style.display = 'none';
+  activeBuildIndex = 0;
 
   const fb = FALLBACK_DATA[champ.id];
   if (fb) {
     renderPanel(champ, fb);
+    document.getElementById('detail-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
     showError('目前無此英雄的攻略資料。');
   }
@@ -116,8 +110,19 @@ function onChampionClick(champ) {
 function renderPanel(champ, data) {
   const panel = document.getElementById('detail-panel');
   const tc = TIER_COLOR[data.tier] || { bg: '#555', text: '#fff' };
+  const builds = data.builds || [];
 
-  const itemsHtml = (data.items || []).map(item => `
+  // Build tabs
+  const tabsHtml = builds.map((b, i) => {
+    const isCommunity = b.label.startsWith('社群');
+    const activeClass = i === activeBuildIndex ? 'active' : '';
+    return `<button class="build-tab ${activeClass} ${isCommunity ? 'community' : 'official'}" data-index="${i}">${esc(b.label)}</button>`;
+  }).join('');
+
+  const currentBuild = builds[activeBuildIndex] || builds[0];
+  const isCommunityBuild = currentBuild?.label.startsWith('社群');
+
+  const itemsHtml = (currentBuild?.items || []).map(item => `
     <div class="item-slot">
       <img src="https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/item/${item.id}.png"
            alt="${esc(item.name)}" onerror="this.style.opacity='0.3'">
@@ -142,13 +147,18 @@ function renderPanel(champ, data) {
     `${i > 0 ? '<span class="skill-arrow">›</span>' : ''}<div class="skill-badge">${esc(s)}</div>`
   ).join('');
 
+  const sourceLabel = isCommunityBuild
+    ? '<span class="source-badge community-badge">社群資料</span>'
+    : '<span class="source-badge official-badge">攻略推薦</span>';
+
   panel.innerHTML = `
     <h2>
       ${esc(champ.zhName)}
       <span class="panel-tier-badge" style="background:${tc.bg};color:${tc.text}">${esc(data.tier)}</span>
     </h2>
+    <div class="build-tabs">${tabsHtml}</div>
     <div class="section">
-      <h3>推薦出裝</h3>
+      <h3>推薦出裝 ${sourceLabel}</h3>
       <div class="items-row">${itemsHtml || '<span style="color:#666">無資料</span>'}</div>
     </div>
     <div class="section">
@@ -160,7 +170,15 @@ function renderPanel(champ, data) {
       <div class="skill-order">${skillHtml}</div>
     </div>
   `;
+
   panel.classList.add('visible');
+
+  panel.querySelectorAll('.build-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeBuildIndex = parseInt(btn.dataset.index);
+      renderPanel(champ, data);
+    });
+  });
 }
 
 function showError(msg) {
